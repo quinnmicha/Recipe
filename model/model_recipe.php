@@ -1,6 +1,21 @@
 <?php 
     include ('db.php');
 
+    //Pulls the info from Recipe Table
+    function getRecipes(){
+        global $db;
+        
+        $stmt=$db->prepare('SELECT * FROM Recipe;');
+        
+        if($stmt->execute() && $stmt->rowCount()>0){
+            $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            return ($results);
+        }
+        else{
+            return false;
+        }
+    }
+    
     
     //Pulls the info from Recipe Table
     function getRecipeIngredients($recipeId){
@@ -47,5 +62,8 @@
     
     $test1 = getRecipeMethods(1);
     var_dump($test1);
+    
+    $test2 = getRecipes();
+    var_dump($test2);
     
 ?>
