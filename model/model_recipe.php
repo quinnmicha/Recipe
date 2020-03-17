@@ -57,13 +57,5 @@
         }
     }
     
-    $test = getRecipeIngredients(1);
-    var_dump($test);
-    
-    $test1 = getRecipeMethods(1);
-    var_dump($test1);
-    
-    $test2 = getRecipes();
-    var_dump($test2);
     
 ?>
