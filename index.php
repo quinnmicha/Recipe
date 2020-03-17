@@ -37,9 +37,12 @@ session_start();
         </div>
         
         <script>
+        recipeNumber = 0;
         $(".addIngredient").click(function(){
-            
-            $("#ingredientForm").append("<p>How about this</p>");
+            recipeNumber +=1;
+            $("#ingredientForm").append('<div class="form-row ingredients' + recipeNumber + '"><input type="text" class="ingredientName"> <input type="text" class="ingredientAmt"> <input type="text" class="ingredientType"> </div>');
+            name = $(".ingredients"+ recipeNumber-1 + ".ingredientName").val();
+            console.log(name);
         });
         </script>
     </div>
