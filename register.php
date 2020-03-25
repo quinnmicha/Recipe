@@ -4,6 +4,13 @@ include __DIR__ . '/Model/model_recipe.php';
 
 session_start();
 
+if(isPostRequest()){
+    $user = FILTER_INPUT(INPUT_POST, 'username');
+    $pass = FILTER_INPUT(INPUT_POST, 'password');
+    //Comment until validation
+    //register($user, $pass); 
+}
+
 
 
 ?>
