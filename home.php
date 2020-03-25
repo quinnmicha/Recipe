@@ -42,29 +42,29 @@ session_start();
 
     <div class='pt-2' style='height:250px;background-color:blue;'>
         <div class='mt-4 d-flex flex-row justify-content-around'>
-            <div class='d-flex justify-content-center align-items-center rounded-pill' style='background-color:white;width:150px;height:50px;'>
-                    <h4>Breakfast</h4>
-            </div>
+            <button class='d-flex justify-content-center align-items-center rounded-pill' style='background-color:white;width:150px;height:50px;'>
+                    Breakfast
+            </button>
         
-            <div class='d-flex justify-content-center align-items-center rounded-pill' style='background-color:white;width:150px;height:50px;'>
-                    <h4>Lunch</h4>
-            </div>
+            <button class='d-flex justify-content-center align-items-center rounded-pill' style='background-color:white;width:150px;height:50px;'>
+                    Lunch
+            </button>
         </div>
         <div class='mt-2 d-flex flex-row justify-content-around'>
-            <div class='d-flex justify-content-center align-items-center rounded-pill' style='background-color:white;width:150px;height:50px;'>
-                    <h4>Dinner</h4>
-            </div>
-            <div class='d-flex justify-content-center align-items-center rounded-pill' style='background-color:white;width:150px;height:50px;'>
-                    <h4>Appetizer</h4>
-            </div>
+            <button class='d-flex justify-content-center align-items-center rounded-pill' style='background-color:white;width:150px;height:50px;'>
+                    Dinner
+            </button>
+            <button class='d-flex justify-content-center align-items-center rounded-pill' style='background-color:white;width:150px;height:50px;'>
+                    Appetizer
+            </button>
         </div>
         <div class='mt-2 d-flex flex-row justify-content-around'>
-            <div class='d-flex justify-content-center align-items-center rounded-pill' style='background-color:white;width:150px;height:50px;'>
-                    <h4>Side Dish</h4>
-            </div>
-            <div class='d-flex justify-content-center align-items-center rounded-pill' style='background-color:white;width:150px;height:50px;'>
-                    <h4>Desert</h4>
-            </div>
+            <button class='d-flex justify-content-center align-items-center rounded-pill' style='background-color:white;width:150px;height:50px;'>
+                    Side Dish
+            </button>
+            <button class='d-flex justify-content-center align-items-center rounded-pill' style='background-color:white;width:150px;height:50px;'>
+                    Desert
+            </button>
         </div>
        
     </div>
