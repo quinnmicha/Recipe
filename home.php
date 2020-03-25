@@ -40,6 +40,15 @@ session_start();
     
 <div class="container">
 
+    <div style='height:250px;background-color:blue;' class='d-flex'>
+        <div class='d-flex justify-content-center align-items-center rounded-pill' style='background-color:white;width:150px;height:50px;'>
+                <h4>Breakfast</h4>
+        </div>
+        <div class='d-flex justify-content-center align-items-center rounded-pill' style='background-color:white;width:150px;height:50px;'>
+                <h4>Breakfast</h4>
+        </div>
+    </div>
+    
         
    
 </div><!--/.container-->
