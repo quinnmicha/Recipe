@@ -52,19 +52,34 @@ session_start();
             <div>
                 <button class="btn btn-primary addIngredient mt-1">Add Ingredient</button>
             </div>
-            
+
             <script>
             recipeNumber = 0;
             $(".addIngredient").click(function(){
-                $("#ingredientForm").append('<div class="form-row ingredients mt-2"> <input type="text" class="form-control mb-1" placeholder="Ingredient Name"> <input type="text" class="offset-1 col-3 form-control" placeholder="amount"> <input type="text" class=" offset-1 col-6 form-control" placeholder="cups/tablespoons"> </div>');
+                $("#ingredientForm").append('<div class="form-row ingredients mt-2"> <input type="text" class="form-control mb-1 ingredientName" placeholder="Ingredient Name"> <input type="text" class="offset-1 col-3 form-control ingredientAmt" placeholder="amount"> <input type="text" class=" offset-1 col-6 form-control ingredientType" placeholder="cups/tablespoons"> </div>');
                 $(".ingredientName").each(function(){
                     console.log($(this).val());
                 });
             });
             </script>
         </div>
-        <div class="form-row">
-            <button class="btn btn-primary">Add Step</button>
+        <div class='form-row mt-3'>
+            <div id="stepForm">
+
+            </div>
+            <div>
+                <button class="btn btn-primary addStep mt-1">Add Step</button>
+                <script>
+                stepNumber=1;
+                $(".addStep").click(function(){
+                    $("#stepForm").append('<div class="form-row ingredients mt-2"> <h6>Step '+stepNumber+'</h6> <textarea class="step form-control stepText" rows="6" cols="50"></textarea> </div>');
+                    stepNumber++;
+                    $(".stepText").each(function(){
+                        console.log($(this).val());
+                    });
+                });
+                </script>
+            </div>
         </div>
     </div>
     
