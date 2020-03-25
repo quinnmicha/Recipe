@@ -47,23 +47,23 @@ session_start();
             </div>
         
             <div class='d-flex justify-content-center align-items-center rounded-pill' style='background-color:white;width:150px;height:50px;'>
-                    <h4>Breakfast</h4>
+                    <h4>Lunch</h4>
             </div>
         </div>
         <div class='mt-2 d-flex flex-row justify-content-around'>
             <div class='d-flex justify-content-center align-items-center rounded-pill' style='background-color:white;width:150px;height:50px;'>
-                    <h4>Breakfast</h4>
+                    <h4>Dinner</h4>
             </div>
             <div class='d-flex justify-content-center align-items-center rounded-pill' style='background-color:white;width:150px;height:50px;'>
-                    <h4>Breakfast</h4>
+                    <h4>Appetizer</h4>
             </div>
         </div>
         <div class='mt-2 d-flex flex-row justify-content-around'>
             <div class='d-flex justify-content-center align-items-center rounded-pill' style='background-color:white;width:150px;height:50px;'>
-                    <h4>Breakfast</h4>
+                    <h4>Side Dish</h4>
             </div>
             <div class='d-flex justify-content-center align-items-center rounded-pill' style='background-color:white;width:150px;height:50px;'>
-                    <h4>Breakfast</h4>
+                    <h4>Desert</h4>
             </div>
         </div>
        
