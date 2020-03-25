@@ -21,34 +21,53 @@ session_start();
 </head>
 
 <body>
-    
-    
-<div class="container">
-    
-    <div class="form-row">
-        <input type="text" name="recipeName" placeholder="Recipe Name">
-    </div>
-    <div class="form-row">
-        <div id="ingredientForm">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">My Recipe</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="#">Features</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Pricing</a>
+            </li>
             
+        </ul>
+    </div>
+</nav>
+    
+<div class="container pt-2">
+    <div class='w-75 m-auto'>
+        <h1>Add A Recipe</h1>
+        <div class="form-row mt-5">
+            <input type="text" class='form-control' name="recipeName" placeholder="Recipe Name">
         </div>
-        <div>
-            <button class="btn btn-primary addIngredient">Add Ingredient</button>
-        </div>
-        
-        <script>
-        recipeNumber = 0;
-        $(".addIngredient").click(function(){
-            $("#ingredientForm").append('<div class="form-row ingredients"><input type="text" class="ingredientName"> <input type="text" class="ingredientAmt"> <input type="text" class="ingredientType"> </div>');
-            $(".ingredientName").each(function(){
-                console.log($(this).val());
+        <div class="form-row mt-3">
+            <div id="ingredientForm">
+
+            </div>
+            <div>
+                <button class="btn btn-primary addIngredient mt-1">Add Ingredient</button>
+            </div>
+            
+            <script>
+            recipeNumber = 0;
+            $(".addIngredient").click(function(){
+                $("#ingredientForm").append('<div class="form-row ingredients mt-2"> <input type="text" class="form-control mb-1" placeholder="Ingredient Name"> <input type="text" class="offset-1 col-3 form-control" placeholder="amount"> <input type="text" class=" offset-1 col-6 form-control" placeholder="cups/tablespoons"> </div>');
+                $(".ingredientName").each(function(){
+                    console.log($(this).val());
+                });
             });
-        });
-        </script>
+            </script>
+        </div>
+        <div class="form-row">
+            <button class="btn btn-primary">Add Step</button>
+        </div>
     </div>
-    <div class="form-row">
-        <button class="btn btn-primary">Add Step</button>
-    </div>
+    
     
         
    
