@@ -4,6 +4,17 @@ include __DIR__ . '/Model/model_recipe.php';
 
 session_start();
 
+if(isPostRequest()){
+    $user = FILTER_INPUT(INPUT_POST, 'username');
+    $pass = FILTER_INPUT(INPUT_POST, 'password');
+    if(login($user, $pass)){
+        //set sessions
+        //redirect
+    }
+    else{
+        //stay here
+    }
+}
 
 
 ?>
