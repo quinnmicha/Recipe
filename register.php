@@ -57,6 +57,9 @@ if(isPostRequest()){
         </div>
         <div class="form-group mt-2">
             <input class='form-control' type="text" name="confPassword" id='confPassword' placeholder="Confirm Password">
+            <div class="invalid-feedback">
+                Password and Confirm Password must match.
+            </div>
         </div>
         <div class="form-group ml-5">
             <button type='submit' class="btn btn-outline-primary ml-5" onclick='return checkData()'>Submit</button>
