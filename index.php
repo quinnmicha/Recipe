@@ -40,20 +40,20 @@ session_start();
 </nav>
     
 <div class="container">
+    <form method='POST' class='m-auto w-50'>
+        <h1 class='mt-4'>Login</h1>
+        <div class="form-group mt-5">
+            <input class='form-control' type="text" name="username" placeholder="Username">
+        </div>
+        <div class="form-group mt-2">
+            <input class='form-control' type="text" name="password" placeholder="Password">
+        </div>
+        <div class="form-group ml-5">
+            <input type='submit' class="btn btn-outline-primary ml-5" value='Add Step'>
+        </div>
+    </form>
     
-    <div>
-        <form method='POST'>
-            <div class="form-group">
-                <input type="text" name="username" placeholder="Username">
-            </div>
-            <div class="form-group">
-                <input type="text" name="password" placeholder="Password">
-            </div>
-            <div class="form-group">
-                <input type='submit' class="btn btn-primary" value='Add Step'>
-            </div>
-        </form>
-    </div>
+    <h6 class='m-4'>Don't have an account? <a href="../Recipe/register.php">Create one here.</a></h6>
     
     
         
