@@ -66,7 +66,6 @@ if(isPostRequest()){
         </div>
     </form>
     
-    <h6 class='m-4'>Don't have an account? <a href="../Recipe/register.php">Create one here.</a></h6>
     
     
         
