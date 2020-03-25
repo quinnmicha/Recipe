@@ -9,7 +9,7 @@ session_start();
 ?>
 <html lang="en">
 <head>
-  <title>Add Recipe</title>
+  <title>My Recipes</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
@@ -21,38 +21,44 @@ session_start();
 </head>
 
 <body>
-    
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">My Recipe</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="#">Features</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Pricing</a>
+            </li>
+            
+        </ul>
+    </div>
+</nav>
     
 <div class="container">
     
-    <div class="form-row">
-        <input type="text" name="recipeName" placeholder="Recipe Name">
+    <div>
+        <form method='POST'>
+            <div class="form-group">
+                <input type="text" name="username" placeholder="Username">
+            </div>
+            <div class="form-group">
+                <input type="text" name="password" placeholder="Password">
+            </div>
+            <div class="form-group">
+                <input type='submit' class="btn btn-primary" value='Add Step'>
+            </div>
+        </form>
     </div>
-    <div class="form-row">
-        <div id="ingredientForm">
-            
-        </div>
-        <div>
-            <button class="btn btn-primary addIngredient">Add Ingredient</button>
-        </div>
-        
-        <script>
-        recipeNumber = 0;
-        $(".addIngredient").click(function(){
-            $("#ingredientForm").append('<div class="form-row ingredients"><input type="text" class="ingredientName"> <input type="text" class="ingredientAmt"> <input type="text" class="ingredientType"> </div>');
-            $(".ingredientName").each(function(){
-                console.log($(this).val());
-            });
-        });
-        </script>
-    </div>
-    <div class="form-row">
-        <button class="btn btn-primary">Add Step</button>
-    </div>
+    
     
         
    
-</div>
+</div><!--/.container-->
 
 
 </body>
