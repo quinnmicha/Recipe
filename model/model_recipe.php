@@ -1,6 +1,48 @@
 <?php 
     include ('db.php');
 
+    //Returns true if user is registered
+    //else returns false
+    function register($user, $pass){
+        global $db;
+        $pass=sha1($pass);
+        
+        $stmt= $db->prepare('INSERT INTO Recipe_Login (username, password) VALUES (:user, :pass);');
+        
+        $binds = array(
+            ":user"=>$user,
+            ":pass"=>$pass
+        );
+        
+        if($stmt->execute($binds) && $stmt->rowCount()>0){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+        
+    //Returns username if user exists and password matches
+    //else returns false
+    function login($user, $pass){
+        global $db;
+        
+        $pass = sha1($pass);
+        $stmt = $db->prepare("SELECT username FROM Recipe_Login WHERE username = :user && password = :pass");   
+        
+        $binds = array(
+            ":user"=>$user,
+            ":pass"=>$pass
+        );
+        
+        if($stmt->execute($binds) && $stmt->rowCount()>0){
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        }
+        else{
+            return false;
+        }
+    }
+
     //Pulls the info from Recipe Table
     function getRecipes(){
         global $db;
@@ -57,13 +99,5 @@
         }
     }
     
-    $test = getRecipeIngredients(1);
-    var_dump($test);
-    
-    $test1 = getRecipeMethods(1);
-    var_dump($test1);
-    
-    $test2 = getRecipes();
-    var_dump($test2);
     
 ?>
