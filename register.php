@@ -41,12 +41,15 @@ session_start();
     
 <div class="container">
     <form method='POST' class='m-auto w-50'>
-        <h1 class='mt-4'>Login</h1>
+        <h1 class='mt-4'>Register</h1>
         <div class="form-group mt-5">
             <input class='form-control' type="text" name="username" placeholder="Username">
         </div>
         <div class="form-group mt-2">
             <input class='form-control' type="text" name="password" placeholder="Password">
+        </div>
+        <div class="form-group mt-2">
+            <input class='form-control' type="text" name="confPassword" placeholder="Confirm Password">
         </div>
         <div class="form-group ml-5">
             <input type='submit' class="btn btn-outline-primary ml-5" value='Submit'>
