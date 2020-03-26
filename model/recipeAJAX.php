@@ -1,8 +1,17 @@
 <?php
 
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+include ('model_recipe.php');
 
+
+//AJAX to add to Recipe table
+
+$userId = input_filer(INPUT_POST, 'userId');
+$recipeName = input_filter(INPUT_POST, 'recipeName');
+$cookTime = input_filter(INPUT_POST, 'cookTime');
+$recipeImage = input_filter(INPUT_POST, 'recipeImage');
+$category = input_filter(INPUT_POST, 'category');
+
+addRecipe($userId, $recipeName, $cookTime, $recipeImage, $category);
+
+
+?>
