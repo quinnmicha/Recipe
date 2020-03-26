@@ -49,7 +49,7 @@ function visualCheck(txtBoxes, txtAreas){
 }
 
 //Returns true and sends to php if everything is valid
-function sendRecipe(){
+function sendData(){
     var errorCheck = 0;
     if($("#recipeName").val()===""){
         $("#recipeName").addClass('is-invalid');
@@ -66,11 +66,13 @@ function sendRecipe(){
         $("#cookMinute").removeClass('is-valid');
         errorCheck++;
     }
-    if($("#ingredientName").val()===""){
-        $("#ingredientName").addClass('is-invalid');
-        $("#ingredientName").removeClass('is-valid');
-        errorCheck++;
-    }
+    $(".ingredientName").each(function(index){
+        if($(this).val()===""){
+            $(this).addClass('is-invalid');
+            $(this).removeClass('is-valid');
+            errorCheck++;
+        }
+    });
     
     console.log('working');
   if(errorCheck>0){
