@@ -11,41 +11,25 @@ $(document).ready(function() {
             $(this).removeClass('is-invalid');
         }
       });
-    $("#confPassword").blur(function() {
-        if(($(this).val()===$("#password").val()) && ($(this).val()!="")){
-          $(this).addClass('is-valid');
-          $(this).removeClass('is-invalid');
-        }
-        else{
-          $(this).addClass('is-invalid');
-          $(this).removeClass('is-valid');
-        }
-    });
-    //Login Validation
-    $(".login").blur(function(){
-        if($(this).val()===""){
-            $(this).addClass('is-invalid');
-            $(this).removeClass('is-valid');
-        }
-        else{
-            $(this).addClass('is-valid');
-            $(this).removeClass('is-invalid');
-        }
-    });
 
 });
 
 //Returns true and sends to php if everything is valid
 function sendRecipe(){
     var errorCheck = 0;
-    if($("#username").val()===""){
-        $("#username").addClass('is-invalid');
-        $("#username").removeClass('is-valid');
+    if($("#recipeName").val()===""){
+        $("#recipeName").addClass('is-invalid');
+        $("#recipeName").removeClass('is-valid');
         errorCheck++;
     }
-    if($("#password").val()===""){
-        $("#password").addClass('is-invalid');
-        $("#password").removeClass('is-valid');
+    if($("#cookHour").val()===""){
+        $("#cookHour").addClass('is-invalid');
+        $("#cookHour").removeClass('is-valid');
+        errorCheck++;
+    }
+    if($("#cookMinute").val()===""){
+        $("#cookMinute").addClass('is-invalid');
+        $("#cookMinute").removeClass('is-valid');
         errorCheck++;
     }
     if($("#confPassword").val()!=$("#password").val() || $("#confPassword").val()===""){
