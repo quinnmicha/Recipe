@@ -32,12 +32,12 @@ function sendRecipe(){
         $("#cookMinute").removeClass('is-valid');
         errorCheck++;
     }
-    if($("#confPassword").val()!=$("#password").val() || $("#confPassword").val()===""){
-        $("#confPassword").addClass('is-invalid');
-        $("#confPassword").removeClass('is-valid');
-        console.log('tripped up here');
+    if($("#ingredientName").val()===""){
+        $("#ingredientName").addClass('is-invalid');
+        $("#ingredientName").removeClass('is-valid');
         errorCheck++;
-      }
+    }
+    
     console.log('working');
   if(errorCheck>0){
     return false;

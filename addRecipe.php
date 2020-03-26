@@ -113,6 +113,22 @@ var_dump($ingredient);
         </form>
     </div>
     
+    <script>
+        $(".addIngredient").click(function(){
+            $("input[type=text]").blur( function() {
+                if($(this).val()===""){
+                    $(this).addClass('is-invalid');
+                    $(this).removeClass('is-valid');
+                }
+                else{
+                    $(this).addClass('is-valid');
+                    $(this).removeClass('is-invalid');
+                }
+              });
+        });
+    
+    </script>
+    
     
         
    
