@@ -48,6 +48,7 @@ function visualCheck(txtBoxes, txtAreas){
     
 }
 
+//Validates on php POST
 //Returns true and sends to php if everything is valid
 function sendData(){
     var errorCheck = 0;
