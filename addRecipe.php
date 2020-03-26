@@ -2,8 +2,14 @@
 
 include __DIR__ . '/Model/model_recipe.php';
 
+$categories = ["Breakfast", "Lunch", "Dinner", "Appetizer", "Side Dish", "Desert"];
 session_start();
 
+$name= filter_input(INPUT_POST, 'recipeName');
+$cat = filter_input(INPUT_POST, 'category');
+$cookHour = filter_input(INPUT_POST, 'cookHour');
+$cookMinute = filter_input(INPUT_POST, 'cookMinute');
+echo $name, $cat, $cookHour, $cookMinute;
 
 
 ?>
@@ -42,51 +48,65 @@ session_start();
 <div class="container pt-2">
     <div class='w-75 m-auto'>
         <h1>Add A Recipe</h1>
-        <div class="form-row mt-5">
-            <input type="text" class='form-control' name="recipeName" placeholder="Recipe Name">
-        </div>
-        <div class="form-row mt-3">
-            <label for="cookHour" class="control-label col-4">Cook Time:</label>
-            <input type="text" class="form-control offset-1 col-4" id="cookHour" name="cookHour" placeholder="Hour">
-            <input type="text" class="form-control offset-5 col-4 mt-1" name="cookMinute" placeholder="Minute">
-
-        </div>
-        <div class="form-row mt-3">
-            <div id="ingredientForm">
+        <form method="post">
+            <div class="form-row mt-5">
+                <label for="recipeName">Recipe Name:</label>
+                <input type="text" class='form-control' name="recipeName" id="recipeName" placeholder="">
+            </div>
+            <div class="form-row mt-3">
+                <label for="category">Category:</label>
+                <select class="form-control" id="category" name="category">
+                    <?php foreach($categories as $categ): ?>
+                    <option><?php echo $categ;?></option>
+                    <?php endforeach;?>
+                </select>
+              </div>
+            <div class="form-row mt-3">
+                <label for="cookHour" class="col-4">Cook Time:</label>
+                <input type="text" class="form-control offset-1 col-4" id="cookHour" name="cookHour" placeholder="Hour">
+                <input type="text" class="form-control offset-5 col-4 mt-1" name="cookMinute" placeholder="Minute">
 
             </div>
-            <div>
-                <button class="btn btn-primary addIngredient mt-1">Add Ingredient</button>
-            </div>
+            <div class="form-row mt-3">
+                <div id="ingredientForm">
 
-            <script>
-            recipeNumber = 0;
-            $(".addIngredient").click(function(){
-                $("#ingredientForm").append('<div class="form-row ingredients mt-2"> <input type="text" class="form-control mb-1 ingredientName" placeholder="Ingredient Name"> <input type="text" class="offset-1 col-3 form-control ingredientAmt" placeholder="amount"> <input type="text" class=" offset-1 col-6 form-control ingredientType" placeholder="cups/tablespoons"> </div>');
-                $(".ingredientName").each(function(){
-                    console.log($(this).val());
-                });
-            });
-            </script>
-        </div>
-        <div class='form-row mt-3'>
-            <div id="stepForm">
+                </div>
+                <div>
+                    <button class="btn btn-outline-primary addIngredient mt-1">Add Ingredient</button>
+                </div>
 
-            </div>
-            <div>
-                <button class="btn btn-primary addStep mt-1">Add Step</button>
                 <script>
-                stepNumber=1;
-                $(".addStep").click(function(){
-                    $("#stepForm").append('<div class="form-row ingredients mt-2"> <h6>Step '+stepNumber+'</h6> <textarea class="step form-control stepText" rows="6" cols="50"></textarea> </div>');
-                    stepNumber++;
-                    $(".stepText").each(function(){
+                recipeNumber = 0;
+                $(".addIngredient").click(function(){
+                    $("#ingredientForm").append('<div class="form-row ingredients mt-2"> <input type="text" class="form-control mb-1 ingredientName" placeholder="Ingredient Name"> <input type="text" class="offset-1 col-3 form-control ingredientAmt" placeholder="amount"> <input type="text" class=" offset-1 col-6 form-control ingredientType" placeholder="cups/tablespoons"> </div>');
+                    $(".ingredientName").each(function(){
                         console.log($(this).val());
                     });
                 });
                 </script>
             </div>
-        </div>
+            <div class='form-row mt-3'>
+                <div id="stepForm">
+
+                </div>
+                <div>
+                    <input type="button" class="btn btn-outline-primary addStep mt-1" value="Add Step">
+                    <script>
+                    stepNumber=1;
+                    $(".addStep").click(function(){
+                        $("#stepForm").append('<div class="form-row ingredients mt-2"> <h6>Step '+stepNumber+'</h6> <textarea class="step form-control stepText" rows="6" cols="50"></textarea> </div>');
+                        stepNumber++;
+                        $(".stepText").each(function(){
+                            console.log($(this).val());
+                        });
+                    });
+                    </script>
+                </div>
+            </div>
+            <div class="form-row mt-3">
+                <input type="submit" class="offset-6 btn btn-outline-success" value="submit">
+            </div>
+        </form>
     </div>
     
     
