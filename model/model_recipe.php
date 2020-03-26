@@ -42,6 +42,28 @@
             return false;
         }
     }
+    
+    //Adds data to Recipe table
+    //returns true if works
+    //returns false if failed
+    function addRecipe($userId, $recipeName, $cookTime, $recipeImage, $category){
+        global $db;
+        
+        $stmt=$db->prepare("INSERT INTO Recipe (userId, recipeName, cookTime, recipeImage, category) VALUES (:userId, :recipeName, :cookTime, :recipeImage, :category)");
+        
+        $binds=array(
+            ":userId"=>$userId,
+            ":recipeName"=>$recipeName,
+            ":cookTime"=>$cookTime,
+            ":recipeImage"=>$recipeImage,
+            ":category"=>$category
+        );
+        
+        if($stmt->execute($binds) && $stmt->rowCount()>0){
+            return true;
+        }
+        return false;
+    }
 
     //Pulls the info from Recipe Table
     function getRecipes(){
