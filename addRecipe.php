@@ -68,7 +68,7 @@ var_dump($ingredient);
             <div class="form-row mt-3">
                 <label for="cookHour" class="col-4">Cook Time:</label>
                 <input type="text" class="form-control offset-1 col-4" id="cookHour" name="cookHour" placeholder="Hour">
-                <input type="text" class="form-control offset-5 col-4 mt-1" name="cookMinute" placeholder="Minute">
+                <input type="text" class="form-control offset-5 col-4 mt-1" id="cookMinute" name="cookMinute" placeholder="Minute">
 
             </div>
             <div class="form-row mt-3">

@@ -73,6 +73,27 @@ function sendData(){
             errorCheck++;
         }
     });
+    $(".ingredientAmt").each(function(index){
+        if($(this).val()===""){
+            $(this).addClass('is-invalid');
+            $(this).removeClass('is-valid');
+            errorCheck++;
+        }
+    });
+    $(".ingredientType").each(function(index){
+        if($(this).val()===""){
+            $(this).addClass('is-invalid');
+            $(this).removeClass('is-valid');
+            errorCheck++;
+        }
+    });
+    $(".stepText").each(function(index){
+        if($(this).val()===""){
+            $(this).addClass('is-invalid');
+            $(this).removeClass('is-valid');
+            errorCheck++;
+        }
+    });
     
     console.log('working');
   if(errorCheck>0){
