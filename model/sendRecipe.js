@@ -5,14 +5,16 @@ $(document).ready(function() {
     var txtAreas = $("textarea");
     
     //start visual validation check
-    visualCheck(txtBoxes);
+    visualCheck(txtBoxes, txtAreas);
     
     //updates inputs on button click
     $(".addIngredient").click(function(txtBoxes, txtAreas){
         txtBoxes = $("input[type=text]");
+        txtAreas = $("textarea");
         visualCheck(txtBoxes, txtAreas);
     });
     $(".addStep").click(function(txtBoxes, txtAreas){
+        txtBoxes = $("input[type=text]");
         txtAreas = $("textarea");
         visualCheck(txtBoxes, txtAreas);
     });
