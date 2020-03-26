@@ -97,9 +97,11 @@ var_dump($ingredient);
                     <input type="button" class="btn btn-outline-primary addStep mt-1" value="Add Step">
                     <script>
                     stepNumber=1;
+                    $("#stepForm").append('<div class="form-row ingredients mt-2"> <h6>Step '+stepNumber+'</h6> <textarea class="step form-control stepText" rows="6" cols="50"></textarea> </div>');
                     $(".addStep").click(function(){
-                        $("#stepForm").append('<div class="form-row ingredients mt-2"> <h6>Step '+stepNumber+'</h6> <textarea class="step form-control stepText" rows="6" cols="50"></textarea> </div>');
-                        stepNumber++;
+                    stepNumber++;
+                    $("#stepForm").append('<div class="form-row ingredients mt-2"> <h6>Step '+stepNumber+'</h6> <textarea class="step form-control stepText" rows="6" cols="50"></textarea> </div>');
+                        
                         $(".stepText").each(function(){
                             console.log($(this).val());
                         });

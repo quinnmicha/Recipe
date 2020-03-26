@@ -1,16 +1,26 @@
 //window.addEventListener("load", init);
 $(document).ready(function() {
+    //grabs the inputs on load
     var txtBoxes = $("input[type=text]");
-    //Checks if input is correct when user clicks out of the text box
+    var txtAreas = $("textarea");
+    
+    //start visual validation check
     visualCheck(txtBoxes);
-      $(".addIngredient").click(function(){
-          txtBoxes = $("input[type=text]");
-          visualCheck(txtBoxes);
-      });
+    
+    //updates inputs on button click
+    $(".addIngredient").click(function(txtBoxes, txtAreas){
+        txtBoxes = $("input[type=text]");
+        visualCheck(txtBoxes, txtAreas);
+    });
+    $(".addStep").click(function(txtBoxes, txtAreas){
+        txtAreas = $("textarea");
+        visualCheck(txtBoxes, txtAreas);
+    });
 
 });
 
-function visualCheck(txtBoxes){
+//Checks if input is correct when user clicks out of the text box
+function visualCheck(txtBoxes, txtAreas){
     txtBoxes.blur( function() {
         if($(this).val()===""){
             $(this).addClass('is-invalid');
@@ -20,7 +30,20 @@ function visualCheck(txtBoxes){
             $(this).addClass('is-valid');
             $(this).removeClass('is-invalid');
         }
-      });
+    });
+    
+    txtAreas.blur(function(){
+        if($(this).val()===""){
+            $(this).addClass('is-invalid');
+            $(this).removeClass('is-valid');
+        }
+        else{
+            $(this).addClass('is-valid');
+            $(this).removeClass('is-invalid');
+        }
+    });
+    
+    
 }
 
 //Returns true and sends to php if everything is valid
