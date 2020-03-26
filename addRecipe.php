@@ -81,8 +81,9 @@ var_dump($ingredient);
 
                 <script>
                 num = 0;
+                $("#ingredientForm").append('<div class="form-row ingredients mt-2"><label>Ingredient:</label>  <input type="text" class="form-control mb-1 ingredientName" name="ingredientName[]" placeholder="Ingredient Name"> <input type="text" class="offset-1 col-3 form-control ingredientAmt" placeholder="amount"> <input type="text" class=" offset-1 col-6 form-control ingredientType" placeholder="cups/tablespoons"> </div>');
                 $(".addIngredient").click(function(){
-                    $("#ingredientForm").append('<div class="form-row ingredients mt-2"> <input type="text" class="form-control mb-1 ingredientName" name="ingredientName[]" placeholder="Ingredient Name"> <input type="text" class="offset-1 col-3 form-control ingredientAmt" placeholder="amount"> <input type="text" class=" offset-1 col-6 form-control ingredientType" placeholder="cups/tablespoons"> </div>');
+                    $("#ingredientForm").append('<div class="form-row ingredients mt-2"><label>Ingredient:</label> <input type="text" class="form-control mb-1 ingredientName" name="ingredientName[]" placeholder="Ingredient Name"> <input type="text" class="offset-1 col-3 form-control ingredientAmt" placeholder="amount"> <input type="text" class=" offset-1 col-6 form-control ingredientType" placeholder="cups/tablespoons"> </div>');
                     $(".ingredientName").each(function(){
                         console.log($(this).val());
                     });
