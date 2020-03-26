@@ -9,7 +9,11 @@ $name= filter_input(INPUT_POST, 'recipeName');
 $cat = filter_input(INPUT_POST, 'category');
 $cookHour = filter_input(INPUT_POST, 'cookHour');
 $cookMinute = filter_input(INPUT_POST, 'cookMinute');
+//having trouble pulling multiple inputs with the same name
+$ingredient = filter_input_array(INPUT_POST, 'ingredientName[]');
 echo $name, $cat, $cookHour, $cookMinute;
+echo $ingredient;
+var_dump($ingredient);
 
 
 ?>
@@ -72,13 +76,13 @@ echo $name, $cat, $cookHour, $cookMinute;
 
                 </div>
                 <div>
-                    <button class="btn btn-outline-primary addIngredient mt-1">Add Ingredient</button>
+                    <input type="button" class="btn btn-outline-primary addIngredient mt-1" value="Add Ingredient">
                 </div>
 
                 <script>
-                recipeNumber = 0;
+                num = 0;
                 $(".addIngredient").click(function(){
-                    $("#ingredientForm").append('<div class="form-row ingredients mt-2"> <input type="text" class="form-control mb-1 ingredientName" placeholder="Ingredient Name"> <input type="text" class="offset-1 col-3 form-control ingredientAmt" placeholder="amount"> <input type="text" class=" offset-1 col-6 form-control ingredientType" placeholder="cups/tablespoons"> </div>');
+                    $("#ingredientForm").append('<div class="form-row ingredients mt-2"> <input type="text" class="form-control mb-1 ingredientName" name="ingredientName[]" placeholder="Ingredient Name"> <input type="text" class="offset-1 col-3 form-control ingredientAmt" placeholder="amount"> <input type="text" class=" offset-1 col-6 form-control ingredientType" placeholder="cups/tablespoons"> </div>');
                     $(".ingredientName").each(function(){
                         console.log($(this).val());
                     });
@@ -103,8 +107,8 @@ echo $name, $cat, $cookHour, $cookMinute;
                     </script>
                 </div>
             </div>
-            <div class="form-row mt-3">
-                <input type="submit" class="offset-6 btn btn-outline-success" value="submit">
+            <div class="form-row mt-4">
+                <input type="submit" class="offset-6 btn btn-outline-success" value="Submit Recipe">
             </div>
         </form>
     </div>
