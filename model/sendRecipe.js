@@ -1,7 +1,17 @@
 //window.addEventListener("load", init);
 $(document).ready(function() {
+    var txtBoxes = $("input[type=text]");
     //Checks if input is correct when user clicks out of the text box
-    $("input[type=text]").blur( function() {
+    visualCheck(txtBoxes);
+      $(".addIngredient").click(function(){
+          txtBoxes = $("input[type=text]");
+          visualCheck(txtBoxes);
+      });
+
+});
+
+function visualCheck(txtBoxes){
+    txtBoxes.blur( function() {
         if($(this).val()===""){
             $(this).addClass('is-invalid');
             $(this).removeClass('is-valid');
@@ -11,8 +21,7 @@ $(document).ready(function() {
             $(this).removeClass('is-invalid');
         }
       });
-
-});
+}
 
 //Returns true and sends to php if everything is valid
 function sendRecipe(){
