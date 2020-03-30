@@ -85,6 +85,26 @@
         }
         return false;
     }
+    
+    //Adds data to Recipe_Method Table
+    //returns true if works
+    //returns false if failed
+    function addMethod($recipeId, $methodOrder, $methodText){
+        global $db;
+        
+        $stmt=$db->prepare("INSERT INTO Recipe_Method (recipeId, methodOrder, methodText) VALUES (:recipeId, :methodOrder, :methodText)");
+        
+        $binds=array(
+            ":recipeId"=>$recipeId,
+            ":methodOrder"=>$methodOrder,
+            ":methodText"=>$methodText
+        );
+        
+        if($stmt->execute($binds) && $stmt->rowCount()>0){
+            return true;
+        }
+        return false;
+    }
 
     //Pulls the info from Recipe Table
     function getRecipes(){
