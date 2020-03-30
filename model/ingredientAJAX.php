@@ -1,5 +1,7 @@
 <?php
 
+include ('model_recipe.php');
+
 $recipeId = getRecipeId();
 
 $ingredientName = filter_input(INPUT_POST, 'ingredientName');
