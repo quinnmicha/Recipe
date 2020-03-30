@@ -80,7 +80,7 @@
             ":measurement"=>$ingredientType
         );
         
-        if($stmt->execute($db) && $stmt->rowCount()>0){
+        if($stmt->execute($binds) && $stmt->rowCount()>0){
             return true;
         }
         return false;
