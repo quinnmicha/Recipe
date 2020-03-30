@@ -4,15 +4,27 @@ include __DIR__ . '/Model/model_recipe.php';
 
 session_start();
 
-if(isPostRequest()){
-    $user = FILTER_INPUT(INPUT_POST, 'username');
-    $pass = FILTER_INPUT(INPUT_POST, 'password');
-    if(login($user, $pass)){
-        //set sessions
-        //redirect
+if( isset($_SESSION["login"])){
+    $action=  filter_input(INPUT_GET, 'action');
+    if( $action=='false'){
+        session_unset();
+        session_destroy();
     }
-    else{
-        //stay here
+    
+    else {
+        header("Location: ../Recipe/addRecipe.php");
+    
+}
+if(isPostRequest()){
+    $user = filter_input(INPUT_POST, 'username');
+    $pass = filter_input(INPUT_POST, 'password');
+    $login = login($user, $pass);
+    if($login!=false){
+        
+        $_SESSION['login'] = true;
+        $_SESSION['username'] = $login[0]['username'];
+        $_SESSION['userId'] = $login[0]['userId'];
+        header("Location: ../Recipe/addRecipe.php"); //TO CHANGE TO NEW HOMEPAGE
     }
 }
 
