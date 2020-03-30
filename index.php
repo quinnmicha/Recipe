@@ -13,9 +13,9 @@ if( isset($_SESSION["login"])){
     
     else {
         header("Location: ../Recipe/addRecipe.php");
-    
+    }
 }
-if(isPostRequest()){
+else if(isPostRequest()){
     $user = filter_input(INPUT_POST, 'username');
     $pass = filter_input(INPUT_POST, 'password');
     $login = login($user, $pass);
