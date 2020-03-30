@@ -72,7 +72,7 @@ var_dump($ingredient);
 
             </div>
             <div class="form-row mt-3">
-                <div id="ingredientForm" name="ingredientForm[]">
+                <div id="ingredientForm" name="ingredientForm">
 
                 </div>
                 <div>
@@ -100,9 +100,21 @@ var_dump($ingredient);
                     $("#stepForm").append('<div class="form-row ingredients mt-2"> <h6>Step '+stepNumber+'</h6> <textarea class="step form-control stepText" rows="6" cols="50"></textarea> </div>');
                     $(".addStep").click(function(){
                         ingredients= [];
+                        ingredientNames=[];
+                        ingredientAmts=[];
+                        ingredientTypes=[];
                         index=0;
-                        $('.ingredients').each(function(){
-                            ingredients.push([$(this + ' :input[name="ingredientName"]').val(), $('.ingredients :input[name="ingredientAmt"]').val(), $('.ingredients :input[name="ingredientType"]').val()]);
+                        $('.ingredientName').each(function(){
+                            ingredientNames.push($(this).val());
+                        });
+                        $('.ingredientAmt').each(function(){
+                            ingredientAmts.push($(this).val());
+                        });
+                        $('.ingredientType').each(function(){
+                            ingredientTypes.push($(this).val());
+                        });
+                        $('.ingredients').each(function(index){
+                            ingredients.push([ingredientNames[index], ingredientAmts[index], ingredientTypes[index]]);
                         });
                         jQuery.each( ingredients, function( i, val ){
                             console.log(val, i);
