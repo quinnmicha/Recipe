@@ -9,20 +9,24 @@ $name= filter_input(INPUT_POST, 'recipeName');
 $cat = filter_input(INPUT_POST, 'category');
 $cookHour = filter_input(INPUT_POST, 'cookHour');
 $cookMinute = filter_input(INPUT_POST, 'cookMinute');
+//having trouble pulling multiple inputs with the same name
+$ingredient = filter_input_array(INPUT_POST, 'ingredientName[]');
 echo $name, $cat, $cookHour, $cookMinute;
+echo $ingredient;
+var_dump($ingredient);
 
 
 ?>
 <html lang="en">
 <head>
-  <title>Add Recipe</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-  <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-
+    <title>Add Recipe</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    
   
 </head>
 
@@ -64,24 +68,23 @@ echo $name, $cat, $cookHour, $cookMinute;
             <div class="form-row mt-3">
                 <label for="cookHour" class="col-4">Cook Time:</label>
                 <input type="text" class="form-control offset-1 col-4" id="cookHour" name="cookHour" placeholder="Hour">
-                <input type="text" class="form-control offset-5 col-4 mt-1" name="cookMinute" placeholder="Minute">
+                <input type="text" class="form-control offset-5 col-4 mt-1" id="cookMinute" name="cookMinute" placeholder="Minute">
 
             </div>
             <div class="form-row mt-3">
-                <div id="ingredientForm">
+                <div id="ingredientForm" name="ingredientForm">
 
                 </div>
                 <div>
-                    <button class="btn btn-outline-primary addIngredient mt-1">Add Ingredient</button>
+                    <input type="button" class="btn btn-outline-primary addIngredient mt-1" value="Add Ingredient">
                 </div>
 
                 <script>
-                recipeNumber = 0;
+                num = 0;
+                $("#ingredientForm").append('<div class="form-row ingredients mt-2"><label>Ingredient:</label>  <input type="text" class="form-control mb-1 ingredientName" name="ingredientName" placeholder="Ingredient Name"> <input type="text" class="offset-1 col-3 form-control ingredientAmt" name="ingredientAmt" placeholder="amount"> <input type="text" class=" offset-1 col-6 form-control ingredientType" name="ingredientType" placeholder="cups/tablespoons"> </div>');
                 $(".addIngredient").click(function(){
-                    $("#ingredientForm").append('<div class="form-row ingredients mt-2"> <input type="text" class="form-control mb-1 ingredientName" placeholder="Ingredient Name"> <input type="text" class="offset-1 col-3 form-control ingredientAmt" placeholder="amount"> <input type="text" class=" offset-1 col-6 form-control ingredientType" placeholder="cups/tablespoons"> </div>');
-                    $(".ingredientName").each(function(){
-                        console.log($(this).val());
-                    });
+                    $("#ingredientForm").append('<div class="form-row ingredients mt-2"><label>Ingredient:</label> <input type="text" class="form-control mb-1 ingredientName" name="ingredientName" placeholder="Ingredient Name"> <input type="text" class="offset-1 col-3 form-control ingredientAmt" name="ingredientAmt" placeholder="amount"> <input type="text" class=" offset-1 col-6 form-control ingredientType" name="ingredientType" placeholder="cups/tablespoons"> </div>');
+                    
                 });
                 </script>
             </div>
@@ -93,18 +96,16 @@ echo $name, $cat, $cookHour, $cookMinute;
                     <input type="button" class="btn btn-outline-primary addStep mt-1" value="Add Step">
                     <script>
                     stepNumber=1;
+                    $("#stepForm").append('<div class="form-row ingredients mt-2"> <h6>Step '+stepNumber+'</h6> <textarea class="step form-control stepText" rows="6" cols="50"></textarea> </div>');
                     $(".addStep").click(function(){
-                        $("#stepForm").append('<div class="form-row ingredients mt-2"> <h6>Step '+stepNumber+'</h6> <textarea class="step form-control stepText" rows="6" cols="50"></textarea> </div>');
                         stepNumber++;
-                        $(".stepText").each(function(){
-                            console.log($(this).val());
-                        });
+                        $("#stepForm").append('<div class="form-row ingredients mt-2"> <h6>Step '+stepNumber+'</h6> <textarea class="step form-control stepText" rows="6" cols="50"></textarea> </div>');
                     });
                     </script>
                 </div>
             </div>
-            <div class="form-row mt-3">
-                <input type="submit" class="offset-6 btn btn-outline-success" value="submit">
+            <div class="form-row mt-4">
+                <input type="submit" class="offset-6 btn btn-outline-success" onclick="return sendData()" value="Submit Recipe">
             </div>
         </form>
     </div>
@@ -114,6 +115,6 @@ echo $name, $cat, $cookHour, $cookMinute;
    
 </div>
 
-
+<script type="text/javascript" src="../Recipe/model/sendRecipe.js"></script>
 </body>
 </html>
