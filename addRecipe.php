@@ -99,28 +99,6 @@ var_dump($ingredient);
                     stepNumber=1;
                     $("#stepForm").append('<div class="form-row ingredients mt-2"> <h6>Step '+stepNumber+'</h6> <textarea class="step form-control stepText" rows="6" cols="50"></textarea> </div>');
                     $(".addStep").click(function(){
-                        ingredients= [];
-                        ingredientNames=[];
-                        ingredientAmts=[];
-                        ingredientTypes=[];
-                        index=0;
-                        $('.ingredientName').each(function(){
-                            ingredientNames.push($(this).val());
-                        });
-                        $('.ingredientAmt').each(function(){
-                            ingredientAmts.push($(this).val());
-                        });
-                        $('.ingredientType').each(function(){
-                            ingredientTypes.push($(this).val());
-                        });
-                        $('.ingredients').each(function(index){
-                            if(ingredientNames[index]!=undefined){
-                                ingredients.push([ingredientNames[index], ingredientAmts[index], ingredientTypes[index]]);
-                            }
-                        });
-                        jQuery.each( ingredients, function( i, val ){
-                            console.log(val, i);
-                        });
                         stepNumber++;
                         $("#stepForm").append('<div class="form-row ingredients mt-2"> <h6>Step '+stepNumber+'</h6> <textarea class="step form-control stepText" rows="6" cols="50"></textarea> </div>');
 

@@ -101,11 +101,29 @@ function sendData(){
     return false;
     }
     else{ 
+        //Post Recipe
         cookTime = (parseFloat($("#cookHour").val()) * 60) + parseInt($("#cookMinute").val());
         $.post( "../Recipe/model/recipeAJAX.php", { userId: 1, recipeName: $("#recipeName").val(), category: $("#category").val(), cookTime: cookTime, recipeImage: "placeholder.jpg"} );
-        $(".ingredientName").each(function(index){
-            //AJAX POST
-            //Only need to loop one
+        //
+        //Post Ingredients
+        ingredients= []; // [name, amt, type]
+        ingredientNames=[];
+        ingredientAmts=[];
+        ingredientTypes=[];
+        $('.ingredientName').each(function(){
+            ingredientNames.push($(this).val());
         });
+        $('.ingredientAmt').each(function(){
+            ingredientAmts.push($(this).val());
+        });
+        $('.ingredientType').each(function(){
+            ingredientTypes.push($(this).val());
+        });
+        $('.ingredients').each(function(index){
+            if(ingredientNames[index]!=undefined){
+                ingredients.push([ingredientNames[index], ingredientAmts[index], ingredientTypes[index]]);
+            }
+        });
+        //
         return true; }
 }
