@@ -68,7 +68,7 @@
     //Adds data to Recipe_Ingredients Table
     //returns true if works
     //returns false if failed
-    function addIngredient(){
+    function addIngredient($recipeId, $ingredientName, $ingredientAmt, $ingredientType){
         global $db;
         
         $stmt = $db->prepare("INSERT INTO Recipe_Ingredients (recipeID, ingredientName, ingredientAmt, measurement) VALUES (:recipeId, :ingredientName, :ingredientAmt, :measurement);");
