@@ -4,11 +4,17 @@ include __DIR__ . '/Model/model_recipe.php';
 
 session_start();
 
+if(isset($_SESSION["login"])){
+    header('Location: ../Recipe/addRecipe.php');
+}
+
 if(isPostRequest()){
     $user = FILTER_INPUT(INPUT_POST, 'username');
     $pass = FILTER_INPUT(INPUT_POST, 'password');
-    //Comment until validation
-    //register($user, $pass); 
+    //echo $userType;
+    if(register($user, $pass)){
+        header('Location: ../Recipe/index.php');
+    }
 }
 
 
