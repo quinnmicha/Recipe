@@ -101,8 +101,8 @@ var_dump($ingredient);
                     $(".addStep").click(function(){
                         ingredients= [];
                         index=0;
-                        $('div[name^="ingredientForm"]').each(function(index){
-                            ingredients.push([$(this(index) +' :input[name="ingredientName"]').val(), $('div[name^="ingredientForm"] :input[name="ingredientAmt"]').val(), $('div[name^="ingredientForm"] :input[name="ingredientType"]').val()]);
+                        $('.ingredients').each(function(){
+                            ingredients.push([$(this + ' :input[name="ingredientName"]').val(), $('.ingredients :input[name="ingredientAmt"]').val(), $('.ingredients :input[name="ingredientType"]').val()]);
                         });
                         jQuery.each( ingredients, function( i, val ){
                             console.log(val, i);
