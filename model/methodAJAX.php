@@ -1,8 +1,12 @@
 <?php
 
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+include ('model_recipe.php');
 
+$recipeId = getRecipeId();
+
+$methodOrder = filter_input(INPUT_POST, 'methodOrder');
+$methodText = filter_input(INPUT_POST, 'methodText');
+
+addMethod($recipeId[0]['recipeId'], $methodOrder, $methodText);
+
+?>
