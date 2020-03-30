@@ -102,6 +102,6 @@ function sendData(){
     }
     else{ 
         cookTime = (parseFloat($("#cookHour").val()) * 60) + parseInt($("#cookMinute").val());
-        $.post( "../InventoryManager/Model/purchase.php", { userId: 1, recipeName: $("#recipeName").val(), category: $("#category country option:selected").val(), cookTime: cookTime} );
+        $.post( "../Recipe/model/recipeAJAX.php", { userId: 1, recipeName: $("#recipeName").val(), category: $("#category").val(), cookTime: cookTime, recipeImage: "placeholder.jpg"} );
         return true; }
 }
