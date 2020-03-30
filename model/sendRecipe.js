@@ -121,7 +121,7 @@ function sendData(){
         });
         $('.ingredients').each(function(index){
             if(ingredientNames[index]!=undefined){
-                ingredients.push([ingredientNames[index], ingredientAmts[index], ingredientTypes[index]]);
+                $.post( "../Recipe/model/ingredientAJAX.php", { ingredientName: ingredientNames[index], ingredientAmt: ingredientAmts[index], ingredientType: ingredientTypes[index]});
             }
         });
         //
