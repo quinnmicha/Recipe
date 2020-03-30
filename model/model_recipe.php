@@ -28,7 +28,7 @@
         global $db;
         
         $pass = sha1($pass);
-        $stmt = $db->prepare("SELECT username FROM Recipe_Login WHERE username = :user && password = :pass");   
+        $stmt = $db->prepare("SELECT userID, username FROM Recipe_Login WHERE username = :user && password = :pass");   
         
         $binds = array(
             ":user"=>$user,
