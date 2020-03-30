@@ -5,16 +5,6 @@ include __DIR__ . '/Model/model_recipe.php';
 $categories = ["Breakfast", "Lunch", "Dinner", "Appetizer", "Side Dish", "Desert"];
 session_start();
 
-$name= filter_input(INPUT_POST, 'recipeName');
-$cat = filter_input(INPUT_POST, 'category');
-$cookHour = filter_input(INPUT_POST, 'cookHour');
-$cookMinute = filter_input(INPUT_POST, 'cookMinute');
-//having trouble pulling multiple inputs with the same name
-$ingredient = filter_input_array(INPUT_POST, 'ingredientName[]');
-echo $name, $cat, $cookHour, $cookMinute;
-echo $ingredient;
-var_dump($ingredient);
-
 
 ?>
 <html lang="en">
