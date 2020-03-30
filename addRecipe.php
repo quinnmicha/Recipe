@@ -72,7 +72,7 @@ var_dump($ingredient);
 
             </div>
             <div class="form-row mt-3">
-                <div id="ingredientForm">
+                <div id="ingredientForm" name="ingredientForm[]">
 
                 </div>
                 <div>
@@ -81,12 +81,11 @@ var_dump($ingredient);
 
                 <script>
                 num = 0;
-                $("#ingredientForm").append('<div class="form-row ingredients mt-2"><label>Ingredient:</label>  <input type="text" class="form-control mb-1 ingredientName" name="ingredientName[]" placeholder="Ingredient Name"> <input type="text" class="offset-1 col-3 form-control ingredientAmt" placeholder="amount"> <input type="text" class=" offset-1 col-6 form-control ingredientType" placeholder="cups/tablespoons"> </div>');
+                $("#ingredientForm").append('<div class="form-row ingredients mt-2"><label>Ingredient:</label>  <input type="text" class="form-control mb-1 ingredientName" name="ingredientName" placeholder="Ingredient Name"> <input type="text" class="offset-1 col-3 form-control ingredientAmt" name="ingredientAmt" placeholder="amount"> <input type="text" class=" offset-1 col-6 form-control ingredientType" name="ingredientType" placeholder="cups/tablespoons"> </div>');
                 $(".addIngredient").click(function(){
-                    $("#ingredientForm").append('<div class="form-row ingredients mt-2"><label>Ingredient:</label> <input type="text" class="form-control mb-1 ingredientName" name="ingredientName[]" placeholder="Ingredient Name"> <input type="text" class="offset-1 col-3 form-control ingredientAmt" placeholder="amount"> <input type="text" class=" offset-1 col-6 form-control ingredientType" placeholder="cups/tablespoons"> </div>');
-                    $(".ingredientName").each(function(){
-                        
-                    });
+                    $("#ingredientForm").append('<div class="form-row ingredients mt-2"><label>Ingredient:</label> <input type="text" class="form-control mb-1 ingredientName" name="ingredientName" placeholder="Ingredient Name"> <input type="text" class="offset-1 col-3 form-control ingredientAmt" name="ingredientAmt" placeholder="amount"> <input type="text" class=" offset-1 col-6 form-control ingredientType" name="ingredientType" placeholder="cups/tablespoons"> </div>');
+                    //console.log($(".ingredientName").val().index(1));
+                    
                 });
                 </script>
             </div>
@@ -100,6 +99,13 @@ var_dump($ingredient);
                     stepNumber=1;
                     $("#stepForm").append('<div class="form-row ingredients mt-2"> <h6>Step '+stepNumber+'</h6> <textarea class="step form-control stepText" rows="6" cols="50"></textarea> </div>');
                     $(".addStep").click(function(){
+                        ingredients= [];
+                        $('div[name^="ingredientForm"]').each(function(){
+                            ingredients.push($('div[name^="ingredientForm"] :input[name="ingredientName"]').val(), $('div[name^="ingredientForm"] :input[name="ingredientAmt"]').val(), $('div[name^="ingredientForm"] :input[name="ingredientType"]').val());
+                        });
+                        jQuery.each( ingredients, function( i, val ){
+                            console.log(val);
+                        });
                         stepNumber++;
                         $("#stepForm").append('<div class="form-row ingredients mt-2"> <h6>Step '+stepNumber+'</h6> <textarea class="step form-control stepText" rows="6" cols="50"></textarea> </div>');
 

@@ -103,5 +103,9 @@ function sendData(){
     else{ 
         cookTime = (parseFloat($("#cookHour").val()) * 60) + parseInt($("#cookMinute").val());
         $.post( "../Recipe/model/recipeAJAX.php", { userId: 1, recipeName: $("#recipeName").val(), category: $("#category").val(), cookTime: cookTime, recipeImage: "placeholder.jpg"} );
+        $(".ingredientName").each(function(index){
+            //AJAX POST
+            //Only need to loop one
+        });
         return true; }
 }
