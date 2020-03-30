@@ -64,6 +64,27 @@
         }
         return false;
     }
+    
+    //Adds data to Recipe_Ingredients Table
+    //returns true if works
+    //returns false if failed
+    function addIngredient(){
+        global $db;
+        
+        $stmt = $db->prepare("INSERT INTO Recipe_Ingredients (recipeID, ingredientName, ingredientAmt, measurement) VALUES (:recipeId, :ingredientName, :ingredientAmt, :measurement);");
+        
+        $binds=array(
+            ":recipeId"=>$recipeId,
+            ":ingredientName"=>$ingredientName,
+            ":ingredientAmt"=>$ingredientAmt,
+            ":measurement"=>$ingredientType
+        );
+        
+        if($stmt->execute($db) && $stmt->rowCount()>0){
+            return true;
+        }
+        return false;
+    }
 
     //Pulls the info from Recipe Table
     function getRecipes(){
@@ -78,6 +99,17 @@
         else{
             return false;
         }
+    }
+    
+    function getRecipeId(){
+        global $db;
+        
+        $stmt=$db->prepare('SELECT MAX(recipeId) as "recipeId" FROM Recipe');
+        
+        if($stmt->execute() && $stmt->rowCount()>0){
+            return $stmt->fetchALL(PDO::FETCH_ASSOC);
+        }
+        return false;
     }
     
     
