@@ -103,6 +103,7 @@ function sendData(){
     else{ 
         //Post Recipe
         cookTime = (parseFloat($("#cookHour").val()) * 60) + parseInt($("#cookMinute").val());
+        //Need to change userID at some point
         $.post( "../Recipe/model/recipeAJAX.php", { userId: 1, recipeName: $("#recipeName").val(), category: $("#category").val(), cookTime: cookTime, recipeImage: "placeholder.jpg"} );
         //
         //
