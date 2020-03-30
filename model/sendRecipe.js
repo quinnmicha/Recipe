@@ -100,5 +100,8 @@ function sendData(){
   if(errorCheck>0){
     return false;
     }
-    else{ return true; }
+    else{ 
+        cookTime = (parseFloat($("#cookHour").val()) * 60) + parseInt($("#cookMinute").val());
+        $.post( "../InventoryManager/Model/purchase.php", { userId: 1, recipeName: $("#recipeName").val(), category: $("#category country option:selected").val(), cookTime: cookTime} );
+        return true; }
 }
