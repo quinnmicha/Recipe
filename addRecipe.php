@@ -114,7 +114,9 @@ var_dump($ingredient);
                             ingredientTypes.push($(this).val());
                         });
                         $('.ingredients').each(function(index){
-                            ingredients.push([ingredientNames[index], ingredientAmts[index], ingredientTypes[index]]);
+                            if(ingredientNames[index]!=undefined){
+                                ingredients.push([ingredientNames[index], ingredientAmts[index], ingredientTypes[index]]);
+                            }
                         });
                         jQuery.each( ingredients, function( i, val ){
                             console.log(val, i);
